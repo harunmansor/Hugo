@@ -3,6 +3,8 @@ languageCode = 'en-us'
 title = 'Harun Mansor'
 theme = 'PaperMod'
 
+relativeURLs = true
+
 [caches]
   [caches.images]
     dir = ":cacheDir/images"
