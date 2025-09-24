@@ -1,4 +1,4 @@
-baseURL = ''
+baseURL = 'https://harunmansor.github.io/Hugo/'
 languageCode = 'en-us'
 title = 'Harun Mansor'
 theme = 'PaperMod'
