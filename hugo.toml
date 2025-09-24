@@ -3,6 +3,10 @@ languageCode = 'en-us'
 title = 'Harun Mansor'
 theme = 'PaperMod'
 
+[caches]
+  [caches.images]
+    dir = ":cacheDir/images"
+
 [params]
 
   body_classes = "georgia bg-near-white"
