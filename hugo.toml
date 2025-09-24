@@ -1,0 +1,59 @@
+baseURL = ''
+languageCode = 'en-us'
+title = 'Harun Mansor'
+theme = 'PaperMod'
+
+[params]
+
+  body_classes = "georgia bg-near-white"
+  ShowToc = true
+  ShowShareButtons = true
+  ShowReadingTime = true
+  ShowBreadCrumbs = true
+  [params.homeInfoParams]
+    Title = "A blog on security — and sometimes, other thoughts too"
+    Content = "Malaysian cybersecurity enthusiast documenting his journey in the world of security. Aka **Cresp0**"
+
+  # socialIcons is an array of tables
+  [[params.socialIcons]]
+    name = "Linkedin"
+    url  = "https://www.linkedin.com/in/harun-mansor/"
+
+  [[params.socialIcons]]
+    name = "Github"
+    url  = "https://github.com/harunmansor"
+
+  [[params.socialIcons]]
+    name = "Email"
+    url  = "mailto:harunmansor73@gmail.com"
+
+  [[params.socialIcons]]
+    name = "Tryhackme"
+    url  = "https://tryhackme.com/r/p/diabloz"
+
+
+[menu]
+
+  [[menu.main]]
+    identifier = "about me"
+    name = "About me" 
+    url = "/aboutme/"
+    weight = 10
+
+#  [[menu.main]]
+#    identifier = "categories"
+#    name = "Categories"
+#    url = "/categories/"
+#    weight = 20
+
+#  [[menu.main]]
+#    identifier = "tags"
+#    name = "Tags"
+#    url = "/tags/"
+#    weight = 30
+
+#  [[menu.main]]
+#    identifier = "archives"
+#    name = "Archives"
+#    url = "/archives/"
+#    weight = 40
