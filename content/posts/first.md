@@ -75,7 +75,7 @@ INFO: Querying computer: DC01.fluffy.htb
 INFO: Done in 00M 13S
 ```
 
-![bloodhound1](/images/bloodhound1.png)
+![bloodhound1](/Hugo/images/bloodhound1.png)
 
 After running `Bloodhound`, right click on the compromised user (j.fleischman) and click "Add to Owned".
 
@@ -133,8 +133,8 @@ New creds would be obtained `p.agila:prometheusx-303`. As we have acquired a new
 bloodhound-python -u p.agila -p "prometheusx-303" -d fluffy.htb -ns 10.10.11.69 -c all
 ```
 As we can see in the imgae below, p.agila is a member of the `Service Account Managers` security group. This should be kept in mind. 
-![bloodhound2](/images/bloodhound2.png)
-![bh3](/images/bh3.png)
+![bloodhound2](/Hugo/images/bloodhound2.png)
+![bh3](/Hugo/images/bh3.png)
 
 Click outbound object control. We would see that p.agila is a member of `Service Account Managers` group that has `GenericAll` perm on the Service Accounts group which has the `GenericWrite` perm on its members (ca_svc, ldap_svc and winrm_svc). For the GenericAll, it means Service Account Managers group members can add any users (modify group membership) into group Service Accounts. 
 
@@ -160,9 +160,9 @@ run bloodhound again after adding p.agila to Service Accounts Group.
 bloodhound-python -u 'p.agila' -p 'prometheusx-303' -d fluffy.htb -ns 10.10.11.69 -c all
 ```
 
-![bh4](/images/bh4.png)
+![bh4](/Hugo/images/bh4.png)
 
-![bh5](/images/bh5.png)
+![bh5](/Hugo/images/bh5.png)
 
 ## 2.2 Shadow Credentials attack to retrieve winrm_svc hash
 
@@ -217,7 +217,7 @@ INFO:minikerberos:Saved TGT to file
 
 Run `getnthash.py` to retrieve the NT hash of `winrm_svc`. This tool actually does the `TGS-REQ` process using Kerberos U2U.. when someone tries to access a resource using TGT gotten from the KDC. See the image below :
 
-![getnt](/images/getnt.png)
+![getnt](/Hugo/images/getnt.png)
 
 ```bash
 ┌──(root㉿kali)-[/home/cresp0/Desktop/fluffy/PKINITtools]
