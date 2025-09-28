@@ -1,17 +1,49 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Harun Mansor</title><link>https://harunmansor.github.io/Hugo/</link><description>Recent content on Harun Mansor</description><generator>Hugo -- 0.150.0</generator><language>en-us</language><lastBuildDate>Thu, 18 Sep 2025 13:09:42 +0800</lastBuildDate><atom:link href="https://harunmansor.github.io/Hugo/index.xml" rel="self" type="application/rss+xml"/><item><title>Aboutme</title><link>https://harunmansor.github.io/Hugo/aboutme/</link><pubDate>Thu, 18 Sep 2025 13:09:42 +0800</pubDate><guid>https://harunmansor.github.io/Hugo/aboutme/</guid><description>&lt;p&gt;My name is Harun, a cybersecurity enthusiast from Malaysia, currently working as a penetration tester.&lt;/p&gt;</description></item><item><title>HTB - Fluffy</title><link>https://harunmansor.github.io/Hugo/posts/first/</link><pubDate>Tue, 16 Sep 2025 19:15:43 +0800</pubDate><guid>https://harunmansor.github.io/Hugo/posts/first/</guid><description>&lt;p&gt;Fluffy is an easy rated Windows machine that showcases real-life bad practices that lead to lateral movement, exploiting ADCS misconfigurations up until compromising the DC.&lt;/p&gt;
-&lt;h1 id="1-reconnaissance"&gt;1. Reconnaissance&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Harun Mansor</title>
+    <link>https://harunmansor.github.io/Hugo/</link>
+    <description>Recent content on Harun Mansor</description>
+    <generator>Hugo -- 0.150.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 18 Sep 2025 13:09:42 +0800</lastBuildDate>
+    <atom:link href="https://harunmansor.github.io/Hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Aboutme</title>
+      <link>https://harunmansor.github.io/Hugo/aboutme/</link>
+      <pubDate>Thu, 18 Sep 2025 13:09:42 +0800</pubDate>
+      <guid>https://harunmansor.github.io/Hugo/aboutme/</guid>
+      <description>&lt;p&gt;My name is Harun, a cybersecurity enthusiast from Malaysia, currently working as a penetration tester.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>HTB - Fluffy</title>
+      <link>https://harunmansor.github.io/Hugo/posts/first/</link>
+      <pubDate>Tue, 16 Sep 2025 19:15:43 +0800</pubDate>
+      <guid>https://harunmansor.github.io/Hugo/posts/first/</guid>
+      <description>&lt;p&gt;Fluffy is an easy rated Windows machine that showcases real-life bad practices that lead to lateral movement, exploiting ADCS misconfigurations up until compromising the DC.&lt;/p&gt;
+&lt;h1 id=&#34;1-reconnaissance&#34;&gt;1. Reconnaissance&lt;/h1&gt;
 &lt;p&gt;Below is the list of open ports on the machine.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;53&lt;/span&gt; - dns
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;88&lt;/span&gt; - kerberos
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;139&lt;/span&gt; - netbios
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;389&lt;/span&gt; - LDAP
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;445&lt;/span&gt; - SMB
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;464&lt;/span&gt; - kpasswd5?
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;593&lt;/span&gt; - RPC over HTTP 1.0
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;636&lt;/span&gt; - ssl/LDAP
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;3268&lt;/span&gt; - LDAP
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;3269&lt;/span&gt; - ssl/LDAP
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;5985&lt;/span&gt; - HTTP
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Windows_server_2019
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;SMB signing scan just for practice purpose :)&lt;/p&gt;</description></item><item><title>Second post</title><link>https://harunmansor.github.io/Hugo/posts/sec/</link><pubDate>Tue, 16 Sep 2025 19:15:43 +0800</pubDate><guid>https://harunmansor.github.io/Hugo/posts/sec/</guid><description>&lt;h1 id="hi-this-is"&gt;Hi this is&lt;/h1&gt;</description></item></channel></rss>
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;53&lt;/span&gt; - dns
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;88&lt;/span&gt; - kerberos
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;139&lt;/span&gt; - netbios
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;389&lt;/span&gt; - LDAP 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;445&lt;/span&gt; - SMB
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;464&lt;/span&gt; - kpasswd5?
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;593&lt;/span&gt; - RPC over HTTP 1.0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;636&lt;/span&gt; - ssl/LDAP
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3268&lt;/span&gt; - LDAP
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3269&lt;/span&gt; - ssl/LDAP 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;5985&lt;/span&gt; - HTTP
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Windows_server_2019
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;SMB signing scan just for practice purpose :)&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Second post</title>
+      <link>https://harunmansor.github.io/Hugo/posts/sec/</link>
+      <pubDate>Tue, 16 Sep 2025 19:15:43 +0800</pubDate>
+      <guid>https://harunmansor.github.io/Hugo/posts/sec/</guid>
+      <description>&lt;h1 id=&#34;hi-this-is&#34;&gt;Hi this is&lt;/h1&gt;</description>
+    </item>
+  </channel>
+</rss>
