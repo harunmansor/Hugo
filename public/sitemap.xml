@@ -2,20 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://harunmansor.github.io/Hugo/aboutme/</loc>
+    <loc>https://harunmansor.github.io/blog/aboutme/</loc>
     <lastmod>2025-09-18T13:09:42+08:00</lastmod>
   </url><url>
-    <loc>https://harunmansor.github.io/Hugo/</loc>
+    <loc>https://harunmansor.github.io/blog/</loc>
     <lastmod>2025-09-18T13:09:42+08:00</lastmod>
   </url><url>
-    <loc>https://harunmansor.github.io/Hugo/posts/first/</loc>
+    <loc>https://harunmansor.github.io/blog/posts/htb-fluffy/</loc>
     <lastmod>2025-09-16T19:15:43+08:00</lastmod>
   </url><url>
-    <loc>https://harunmansor.github.io/Hugo/posts/</loc>
+    <loc>https://harunmansor.github.io/blog/posts/</loc>
     <lastmod>2025-09-16T19:15:43+08:00</lastmod>
   </url><url>
-    <loc>https://harunmansor.github.io/Hugo/categories/</loc>
+    <loc>https://harunmansor.github.io/blog/categories/</loc>
   </url><url>
-    <loc>https://harunmansor.github.io/Hugo/tags/</loc>
+    <loc>https://harunmansor.github.io/blog/tags/</loc>
   </url>
 </urlset>
