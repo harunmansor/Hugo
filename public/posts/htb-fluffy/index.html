@@ -317,7 +317,7 @@ SMB signing scan just for practice purpose :)">
 </span></span><span style="display:flex;"><span>INFO: Done in 00M 13S
 </span></span></code></pre></div><p>Start <code>neo4j</code> and upload all the data from the previous command output to <code>Bloodhound</code> GUI</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo neo4j console 
-</span></span></code></pre></div><p><img alt="bloodhound1" loading="lazy" src="/Hugo/images/bloodhound1.png"></p>
+</span></span></code></pre></div><p><img alt="bloodhound1" loading="lazy" src="/blog/images/bloodhound1.png"></p>
 <p>After running <code>Bloodhound</code>, right click on the compromised user (j.fleischman) and click &ldquo;Add to Owned&rdquo;.</p>
 <h1 id="2-lateral-movement">2. Lateral Movement<a hidden class="anchor" aria-hidden="true" href="#2-lateral-movement">#</a></h1>
 <p>In the Upgrade_Notice.pdf, there are several CVEs that are pending to upgrade which one vulnerability stands out :- <a href="https://cti.monster/blog/2025/03/18/CVE-2025-24071.html"><code>CVE-2025-24071</code></a> - Basically it exploits the trust between Windows Explorer and .library-ms file.  Windows Explorer automatically parses .library-ms file to build virtual views. When a .library-ms file containing SMB path is compressed into a ZIP archive, and subsequently decompressed by someone in the network, the victim&rsquo;s hash will be captured as it is a part of the NTLM authentication. This means it will not work if NTLM authentication mechanism is not used in the environment.</p>
@@ -355,8 +355,8 @@ This exploit will generate a specially crafted ZIP file meant to be decompressed
 </span></span></code></pre></div><p>New creds would be obtained <code>p.agila:prometheusx-303</code>. As we have acquired a new user, re-run the below command for the new user in order for <code>Bloodhound</code> to be updated. Upload the command outputs to the <code>Bloodhound</code> web interface.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bloodhound-python -u p.agila -p <span style="color:#e6db74">&#34;prometheusx-303&#34;</span> -d fluffy.htb -ns 10.10.11.69 -c all
 </span></span></code></pre></div><p>As we can see in the imgae below, p.agila is a member of the <code>Service Account Managers</code> security group. This should be kept in mind.
-<img alt="bloodhound2" loading="lazy" src="/Hugo/images/bloodhound2.png">
-<img alt="bh3" loading="lazy" src="/Hugo/images/bh3.png"></p>
+<img alt="bloodhound2" loading="lazy" src="/blog/images/bloodhound2.png">
+<img alt="bh3" loading="lazy" src="/blog/images/bh3.png"></p>
 <p>Click outbound object control. We would see that p.agila is a member of <code>Service Account Managers</code> group that has <code>GenericAll</code> perm on the Service Accounts group which has the <code>GenericWrite</code> perm on its members (ca_svc, ldap_svc and winrm_svc). For the GenericAll, it means Service Account Managers group members can add any users (modify group membership) into group Service Accounts.</p>
 <blockquote>
 <p>💡 <strong>Tip:</strong> GenericAll over a group - Full control of a group allows you to directly modify group
@@ -371,8 +371,8 @@ Alternatively, you can write to the “servicePrincipalNames” attribute and pe
 </span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> p.agila added to SERVICE ACCOUNTS
 </span></span></code></pre></div><p>run bloodhound again after adding p.agila to Service Accounts Group.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bloodhound-python -u <span style="color:#e6db74">&#39;p.agila&#39;</span> -p <span style="color:#e6db74">&#39;prometheusx-303&#39;</span> -d fluffy.htb -ns 10.10.11.69 -c all
-</span></span></code></pre></div><p><img alt="bh4" loading="lazy" src="/Hugo/images/bh4.png"></p>
-<p><img alt="bh5" loading="lazy" src="/Hugo/images/bh5.png"></p>
+</span></span></code></pre></div><p><img alt="bh4" loading="lazy" src="/blog/images/bh4.png"></p>
+<p><img alt="bh5" loading="lazy" src="/blog/images/bh5.png"></p>
 <h2 id="22-shadow-credentials-attack-to-retrieve-winrm_svc-hash">2.2 Shadow Credentials attack to retrieve winrm_svc hash<a hidden class="anchor" aria-hidden="true" href="#22-shadow-credentials-attack-to-retrieve-winrm_svc-hash">#</a></h2>
 <p>Now we will create <code>shadow credentials</code> on one of the service accounts which is <code>winrm_svc</code>. Use <code>pywhisker.py</code> from <a href="https://github.com/ShutdownRepo/pywhisker">here</a>. To understand more about Shadow Credentials attack.. read it <a href="https://posts.specterops.io/shadow-credentials-abusing-key-trust-account-mapping-for-takeover-8ee1a53566ab">here</a>. By doing this attack, we essentially inject a certificate into the account for purposes like persistence, and now we can perform Kerberos PKINIT auth using the cert set by us without knowing its password.</p>
 <p>Please be noted that we can just use <code>certipy</code> to do the attack in a single command  but for learning purposes, I&rsquo;ll be using 3 tools that complement each other that serve the same purpose as <code>certipy</code>.</p>
@@ -418,11 +418,11 @@ Alternatively, you can write to the “servicePrincipalNames” attribute and pe
 </span></span><span style="display:flex;"><span>INFO:minikerberos:Saved TGT to file
 </span></span></code></pre></div><p>Now, I want you to take a look at the output, where there is an <code>AS-REP encryption key</code>. Let&rsquo;s dive into what exactly that is and where it came from.</p>
 <p>Let&rsquo;s go back to how Kerberos works :- remember that Kerberos is password/symmetric while Kerberos + PKINIT is certificate/asymmetric.</p>
-<p><img alt="kerb" loading="lazy" src="/Hugo/images/kerb.jpg">
-<img alt="kerb1" loading="lazy" src="/Hugo/images/kerb1.png"></p>
+<p><img alt="kerb" loading="lazy" src="/blog/images/kerb.jpg">
+<img alt="kerb1" loading="lazy" src="/blog/images/kerb1.png"></p>
 <p>The first step of the mechanism is the user has to authenitcate using his credentials (password etc). whereas in Kerberos PKINIT, the user presents his certificate-privatekey (the one we got from pywhisker.py) to the KDC to confirm his identity. Then in the AS-REP process, there are two things in AS-REP which are TGT and Session Key encrypted by the symmetric key (AS-REP key) generated by the KDC. The key is generated using either two ways which are RSA and DHE. Lastly, the user will decrypt the session key using AS-REP key or the symmetric key.</p>
 <p>Run <code>getnthash.py</code> to retrieve the NT hash of <code>winrm_svc</code>. This tool actually does the <code>TGS-REQ</code> process, which is the first process to request access to a service after we got the TGT from AS-REP process. The image below explains that we (winrm_svc) is essentially request access to ourselves.</p>
-<p><img alt="getnt" loading="lazy" src="/Hugo/images/getnt.png"></p>
+<p><img alt="getnt" loading="lazy" src="/blog/images/getnt.png"></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>┌──<span style="color:#f92672">(</span>root㉿kali<span style="color:#f92672">)</span>-<span style="color:#f92672">[</span>/home/cresp0/Desktop/fluffy/PKINITtools<span style="color:#f92672">]</span>
 </span></span><span style="display:flex;"><span>└─# python3 getnthash.py -k 398bd58e8f484f885d3735cc6fe28ae0277840c5cabb8081167f4f85f7a7d31e fluffy.htb/WINRM_SVC
 </span></span><span style="display:flex;"><span>Impacket v0.13.0.dev0 - Copyright Fortra, LLC and its affiliated companies 
